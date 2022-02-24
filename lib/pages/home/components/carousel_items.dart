@@ -12,9 +12,9 @@ List<CarouselItemModel> carouselItems = List.generate(
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          "PRODUCT",
+          "Application and Website developer",
           style: GoogleFonts.oswald(
-            color: kPrimaryColor,
+            color: kDangerColor,
             fontWeight: FontWeight.w900,
             fontSize: 16.0,
           ),
@@ -22,10 +22,30 @@ List<CarouselItemModel> carouselItems = List.generate(
         const SizedBox(
           height: 18.0,
         ),
+        Text(
+          "JOANIS\nALLUSHI",
+          style: GoogleFonts.oswald(
+            color: Colors.white,
+            fontSize: 40.0,
+            fontWeight: FontWeight.w900,
+            height: 1.3,
+          ),
+        ),
+        const SizedBox(
+          height: 10.0,
+        ),
+        const Text(
+          "Full-stack developer, based in Thessaloniki.",
+          style: TextStyle(
+            color: kCaptionColor,
+            fontSize: 15.0,
+            height: 1.0,
+          ),
+        ),
       ],
     ),
     image: Image.asset(
-      "assets/person",
+      'assets/person1.png',
       fit: BoxFit.contain,
     ),
   ),
