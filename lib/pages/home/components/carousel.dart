@@ -108,11 +108,19 @@ Widget _buildTablet(BuildContext context, Widget text, Widget image) {
 }
 
 Widget _buildMobile(BuildContext context, Widget text, Widget image) {
-  return Container(
-    constraints: BoxConstraints(
-      maxHeight: MediaQuery.of(context).size.width * .8,
+  return Center(
+    child: ResponsiveWrapper(
+      maxWidth: 500.0,
+      minWidth: 500.0,
+      defaultScale: false,
+      child: Container(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.width * 0.8,
+        ),
+        //width: double.infinity,
+        child: text,
+        //padding: const EdgeInsets.fromLTRB(30.0, 0, 0, 30.0),
+      ),
     ),
-    width: double.infinity,
-    child: text,
   );
 }
