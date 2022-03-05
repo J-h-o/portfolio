@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/globals.dart';
 import 'package:portfolio/pages/home/components/carousel.dart';
+import 'package:portfolio/pages/home/components/cv.dart';
 import 'package:portfolio/pages/home/components/header.dart';
 
 class Home extends StatelessWidget {
@@ -68,6 +69,7 @@ class Home extends StatelessWidget {
             children: const [
               Header(),
               Carousel(),
+              Cv(),
             ]),
       ),
     );
