@@ -1,0 +1,84 @@
+/* Allushi — color tokens
+   Near-monochrome ink system + one signal green accent.
+   The green is an evolution of the old portfolio primary (#15B572), tuned for
+   contrast on both ink and paper surfaces. */
+
+:root {
+  /* ---- Base: ink (cool near-black neutrals) ---- */
+  --ink-950: #0A0C0E;
+  --ink-900: #111417;
+  --ink-800: #1A1E23;
+  --ink-700: #272C33;
+  --ink-600: #3A414A;
+  --ink-500: #545D68;
+  --ink-400: #78828E;
+  --ink-300: #A2ABB5;
+  --ink-200: #C9CFD6;
+  --ink-100: #E4E7EB;
+  --ink-50:  #F2F3F5;
+
+  /* ---- Base: paper ---- */
+  --paper-0:  #FFFFFF;
+  --paper-50: #FAFAF9;
+
+  /* ---- Base: signal green (brand accent) ---- */
+  --green-700: #0E7A4E;
+  --green-600: #12945F;
+  --green-500: #15B572;  /* legacy primary, kept as the brand hue anchor */
+  --green-400: #2ECE8B;
+  --green-300: #7BE3B8;
+  --green-100: #DCF6EA;
+  --green-glow: #2ECE8B33;
+
+  /* ---- Base: semantic hues ---- */
+  --red-600:   #C93A2C;
+  --red-100:   #FBE7E4;
+  --amber-600: #B57E14;
+  --amber-100: #FBF1DC;
+  --blue-600:  #2563EB;
+  --blue-100:  #E0EAFD;
+
+  /* ---- Semantic: text ---- */
+  --text-strong:  var(--ink-950);
+  --text-body:    var(--ink-700);
+  --text-muted:   var(--ink-500);
+  --text-faint:   var(--ink-400);
+  --text-inverse: var(--paper-0);
+  --text-inverse-muted: var(--ink-300);
+  --text-accent:  var(--green-600);
+
+  /* ---- Semantic: surfaces ---- */
+  --surface-page:      var(--paper-0);
+  --surface-subtle:    var(--paper-50);
+  --surface-sunken:    var(--ink-50);
+  --surface-card:      var(--paper-0);
+  --surface-dark:      var(--ink-950);
+  --surface-dark-card: var(--ink-900);
+  --surface-dark-raised: var(--ink-800);
+  --surface-accent-tint: var(--green-100);
+
+  /* ---- Semantic: borders ---- */
+  --border-default: var(--ink-100);
+  --border-strong:  var(--ink-200);
+  --border-dark:    var(--ink-800);
+  --border-dark-strong: var(--ink-700);
+  --border-accent:  var(--green-500);
+
+  /* ---- Semantic: interactive ---- */
+  --action-primary:        var(--ink-950);
+  --action-primary-hover:  var(--ink-800);
+  --action-accent:         var(--green-500);
+  --action-accent-hover:   var(--green-400);
+  --action-on-accent:      var(--ink-950);
+  --focus-ring:            var(--green-500);
+
+  /* ---- Semantic: status ---- */
+  --status-success:      var(--green-600);
+  --status-success-tint: var(--green-100);
+  --status-warning:      var(--amber-600);
+  --status-warning-tint: var(--amber-100);
+  --status-danger:       var(--red-600);
+  --status-danger-tint:  var(--red-100);
+  --status-info:         var(--blue-600);
+  --status-info-tint:    var(--blue-100);
+}

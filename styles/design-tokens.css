@@ -1,0 +1,70 @@
+/*
+ * Temporary Allushi design adapter, translated from the supplied Claude Design
+ * export. Content and component contracts do not depend on these raw values.
+ */
+@font-face { font-family: "Space Grotesk"; src: url("/fonts/space-grotesk-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("/fonts/space-grotesk-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("/fonts/space-grotesk-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("/fonts/inter-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("/fonts/inter-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("/fonts/inter-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("/fonts/inter-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+:root {
+  --ink-950: #0a0c0e;
+  --ink-900: #111417;
+  --ink-800: #1a1e23;
+  --ink-700: #272c33;
+  --ink-600: #3a414a;
+  --ink-500: #545d68;
+  --ink-400: #78828e;
+  --ink-300: #a2abb5;
+  --ink-200: #c9cfd6;
+  --ink-100: #e4e7eb;
+  --ink-50: #f2f3f5;
+  --paper-0: #fff;
+  --paper-50: #fafaf9;
+  --green-700: #0e7a4e;
+  --green-600: #12945f;
+  --green-500: #15b572;
+  --green-400: #2ece8b;
+  --green-100: #dcf6ea;
+  --green-glow: #2ece8b33;
+  --red-600: #c93a2c;
+  --red-100: #fbe7e4;
+
+  --text-strong: var(--ink-950);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-faint: var(--ink-400);
+  --text-inverse: var(--paper-0);
+  --text-inverse-muted: var(--ink-300);
+  --text-accent: var(--green-600);
+  --surface-page: var(--paper-0);
+  --surface-subtle: var(--paper-50);
+  --surface-sunken: var(--ink-50);
+  --surface-dark: var(--ink-950);
+  --surface-dark-card: var(--ink-900);
+  --surface-dark-raised: var(--ink-800);
+  --border-default: var(--ink-100);
+  --border-strong: var(--ink-200);
+  --border-dark: var(--ink-800);
+  --border-dark-strong: var(--ink-700);
+
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --container-max: 1140px;
+  --container-pad: 24px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 999px;
+  --shadow-card: 0 1px 2px rgb(10 12 14 / 5%);
+  --shadow-raised: 0 2px 8px rgb(10 12 14 / 7%), 0 1px 2px rgb(10 12 14 / 5%);
+  --shadow-accent-glow: 0 0 0 3px var(--green-glow);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
