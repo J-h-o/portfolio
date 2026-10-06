@@ -12,10 +12,10 @@ Implemented:
 - Site-wide `Person`, home `ProfessionalService`, per-service `Service`, and per-case-study `CreativeWork` JSON-LD.
 - `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, generated icon/OG images, and custom 404.
 - Local self-hosted fonts, explicit wordmark dimensions, reduced-motion support, semantic headings, and one H1 per page.
-- Cal.com code isolated to the `/book` client leaf.
+- Booking iframe isolated to the `/book` client leaf.
 - Complete `/en` and `/el` sub-path routing, canonical URLs per locale, reciprocal `en-GB` / `el-GR` / `x-default` alternates, and localized sitemap entries.
 
-Still required before launch: final domain/canonical decision, real Cal.com and Resend verification, Lighthouse runs on a Vercel preview, Search Console submission, and final production imagery/design QA.
+Still required before launch: final domain/canonical decision, Resend verification, Lighthouse runs on a Vercel preview, Search Console submission, and final production imagery/design QA.
 
 ## Rendering rules
 
@@ -45,7 +45,7 @@ Still required before launch: final domain/canonical decision, real Cal.com and 
 
 - Lighthouse ≥90 mobile on all categories before launch.
 - `next/image` for all imagery (AVIF/WebP, explicit sizes); `next/font` (self-hosted, `display: swap`).
-- Cal.com embed lazy-loaded on `/book` only — do not ship its JS site-wide.
+- Booking iframe on `/book` only; no booking JS ships site-wide.
 
 ## Content levers (post-launch)
 

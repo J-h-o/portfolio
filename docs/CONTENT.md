@@ -36,7 +36,7 @@ Authoritative map of what content exists, what is placeholder, and what the owne
 3. **Updated CV PDF** for the site's download button (the bbv profile is employer-branded — likely needs a personal-branded version).
 4. **Agency details:** partially resolved by the supplied Allushi design export: brand name, voice, four capability areas, and process are implemented. `TODO(owner)`: confirm final target-client definition and pricing signals/commercial-model language before launch.
 5. **Testimonials / client logos** (with permission — ArtVolt, Woli are candidates).
-6. **Booking:** `/book` and the lazy Cal.com adapter are implemented. `TODO(owner)`: supply the Cal.com event link, event types + durations, availability, and Google Calendar sync.
+6. **Booking:** `/book` embeds the self-hosted booking page (15-min intro call, Mon–Fri 16:00–21:00 Athens). Rules and calendars are configured in `allushi-infra` (`stack/booking.py`).
 7. **Bio & photos:** confirm short/long bio adapted from EXPERIENCE.md summary; professional photo (bbv profile has one — need the original file + usage OK).
 8. **Domain:** likely **joanisallushi.com** (contact@ email exists on it) — confirm it's owned and will host the site.
 9. ~~**Languages**~~ ✅ Resolved — English and Greek are implemented as complete, server-rendered locale trees (`/en`, `/el`) with semantic Greek translations and `hreflang` alternates. See `docs/I18N.md`.

@@ -4,7 +4,7 @@
 
 ## Project in one line
 
-Unfinished 2022 Flutter Web portfolio being rebuilt in this repo as a Next.js (SSR) portfolio + Cal.com booking + software agency site, styled via Anthropic's Claude Design. Roadmap: `docs/MIGRATION.md`.
+Unfinished 2022 Flutter Web portfolio being rebuilt in this repo as a Next.js (SSR) portfolio + booking (self-hosted, embedded from book.joanisallushi.com) + software agency site, styled via Anthropic's Claude Design. Roadmap: `docs/MIGRATION.md`.
 
 ## Claude-specific guidance
 

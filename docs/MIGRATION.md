@@ -8,7 +8,7 @@ The single roadmap for turning this repo into a portfolio + booking + software-a
 |---|---|---|
 | Framework | **Next.js (App Router), TypeScript, Tailwind CSS** | SSR/SSG for SEO, metadata API, mature ecosystem for booking/agency features, free Vercel deploys |
 | Rendering | Static (SSG) by default, SSR where needed | Portfolio/agency pages are mostly static; fastest CWV |
-| Booking | **Cal.com embed** on `/book` | Open-source, free tier, Google Calendar sync, self-hostable later; no custom backend to maintain |
+| Booking | **Self-hosted booking page** embedded on `/book` | Replaced Cal.com (Oct 2026): own look, EN/EL, iCloud calendar, Jitsi links; runs on the Sofia server (`allushi-infra`) |
 | Design system | **Claude Design (Anthropic)** output, translated to Tailwind tokens | Owner will generate layouts/design system with Claude Design; workflow in `docs/DESIGN.md` |
 | Repo strategy | **Rebuild in this repo**; Flutter moves to `legacy/`, deleted after parity | Keeps history and content in one place |
 | Rewrite vs. port | Rewrite | Flutter Web canvas rendering is incompatible with SEO goals; app is ~500 LOC with mostly placeholder content — nothing to port but content |
@@ -21,7 +21,7 @@ The single roadmap for turning this repo into a portfolio + booking + software-a
 /portfolio/[slug]→ Case study pages (SSG, one per project)
 /services        → Agency services (web/app development, consulting)
 /about           → Bio, experience timeline, CV download
-/book            → Cal.com embedded scheduler
+/book            → embedded self-hosted booking page (book.joanisallushi.com)
 /contact         → Contact form + details
 /blog (optional) → Later phase; strongest long-term SEO lever
 ```
@@ -58,9 +58,7 @@ Content lives in typed data files or MDX under `content/` — no CMS in v1.
 - [x] Booking CTAs throughout
 
 ### Phase 4 — Booking
-- [ ] Cal.com account + event types (e.g. 15-min intro, 60-min consultation)
-- [x] `/book` route with lazy `@calcom/embed-react` adapter and transparent fallback
-- [ ] Supply `NEXT_PUBLIC_CAL_LINK` and verify the real booking flow
+- [x] `/book` route embedding the self-hosted booking page (book.joanisallushi.com); Cal.com removed
 - [ ] Confirmation/thanks flow
 
 ### Phase 5 — SEO hardening & launch
@@ -76,7 +74,7 @@ Content lives in typed data files or MDX under `content/` — no CMS in v1.
 - Public content is typed under `content/`; English and Greek share the same content contracts and case-study slugs, and no page or visual component owns biography or case-study facts.
 - The temporary Claude Design export is preserved under `design/`, with production tokens adapted in `styles/design-tokens.css` and reusable components under `components/`.
 - All public routes are static/SSG. `/api/contact` is the only dynamic route.
-- Booking JavaScript is loaded only on `/book` and only when a Cal.com link exists.
+- The booking iframe is loaded only on `/book`; no third-party booking JavaScript ships with the site.
 - Deployment and environment setup are documented in `docs/DEPLOYMENT.md`.
 
 ## Definition of done (per phase)

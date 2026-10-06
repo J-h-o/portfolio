@@ -1,6 +1,6 @@
 # Allushi — Portfolio, Software & AI Studio
 
-The production rebuild of Joanis Allushi’s portfolio and software studio site. It combines verified work history and case studies with service pages, a Cal.com booking route, a working contact path, complete server-rendered SEO plumbing, and first-class English/Greek localization.
+The production rebuild of Joanis Allushi’s portfolio and software studio site. It combines verified work history and case studies with service pages, a booking route (embedding the self-hosted book.joanisallushi.com), a working contact path, complete server-rendered SEO plumbing, and first-class English/Greek localization.
 
 The site is built with Next.js App Router, strict TypeScript, Tailwind CSS, and a temporary Claude Design export. The legacy Flutter application is preserved in `legacy/` until owner sign-off.
 
@@ -42,7 +42,7 @@ No unresolved FODSA details, private phone number, obsolete CV, placeholder test
 
 Copy `.env.example` to `.env.local` and set:
 
-- `NEXT_PUBLIC_CAL_LINK` to one shared Cal.com event URL, or `NEXT_PUBLIC_CAL_LINK_EN` / `NEXT_PUBLIC_CAL_LINK_EL` to separate translated events. Without them, `/book` shows a transparent email fallback.
+- `NEXT_PUBLIC_BOOKING_URL` (optional) to point `/book` at a different booking page. By default it embeds the self-hosted page at https://book.joanisallushi.com (source: the private `allushi-infra` repo, `stack/booking.py`).
 - `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, and `CONTACT_TO_EMAIL` to enable direct contact-form delivery. Without them, a validated brief opens in the visitor’s email app.
 - `NEXT_PUBLIC_SITE_URL` to the canonical production domain.
 

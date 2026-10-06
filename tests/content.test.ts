@@ -7,7 +7,6 @@ import { getExperienceContent } from "@/content/experience";
 import { getDictionary } from "@/content/dictionary";
 import { locales, localizePath } from "@/content/i18n";
 import { createMailtoUrl, validateContactPayload } from "@/lib/contact";
-import { normalizeCalLink, parseCalLink } from "@/lib/cal";
 
 describe("published content", () => {
   it("keeps routes and case-study slugs unique", () => {
@@ -57,14 +56,4 @@ describe("published content", () => {
     assert.match(decodeURIComponent(createMailtoUrl(payload)), /Νέο αίτημα έργου/);
   });
 
-  it("accepts safe Cal.com event URLs and paths", () => {
-    assert.equal(normalizeCalLink("https://cal.com/john/intro-call?date=2026-07-13"), "john/intro-call");
-    assert.equal(normalizeCalLink("/john/intro-call/"), "john/intro-call");
-    assert.deepEqual(parseCalLink("https://cal.eu/joanisallushi.com/get-to-know"), {
-      calLink: "joanisallushi.com/get-to-know",
-      calOrigin: "https://cal.eu",
-      embedJsUrl: "https://cal.eu/embed/embed.js",
-    });
-    assert.equal(normalizeCalLink("https://example.com/not-cal"), undefined);
-  });
 });

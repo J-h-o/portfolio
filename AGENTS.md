@@ -71,6 +71,6 @@ npm run typecheck
 - **Content gaps need the owner.** Job history, project case studies, agency service descriptions, and testimonials must come from John — leave clearly marked `TODO(owner)` placeholders rather than fabricating.
 - **SEO is a first-class requirement.** Every page in the new app ships with metadata, OG tags, and JSON-LD per `docs/SEO.md`. Server-render by default; add `"use client"` only where interactivity requires it.
 - **Design system comes from Claude Design.** Don't hand-roll a visual identity. Follow the import workflow in `docs/DESIGN.md`; until Claude Design output lands, use the interim tokens documented there.
-- **Booking = Cal.com embed** on a dedicated `/book` route (plus inline CTAs). Do not build a custom booking backend.
+- **Booking = self-hosted page** `https://book.joanisallushi.com`, embedded on `/book` by `components/booking-embed.tsx` (Cal.com was removed in Oct 2026 by the owner's decision). The booking backend lives in the private `allushi-infra` repo (`stack/booking.py`), not in this site.
 - **TypeScript strict, Tailwind CSS, App Router** for the new app. Commit messages: short imperative, lower-case (matches existing history, e.g. `cv section`).
 - Update the relevant `docs/*.md` file whenever a decision or milestone in it changes. Stale docs are worse than no docs.

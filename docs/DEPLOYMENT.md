@@ -32,25 +32,18 @@ No `vercel.json` is required. Git-based deployments are preferred over a custom 
 | Name | Required for launch | Scope | Purpose |
 |---|---:|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Yes | Production / Preview | Canonical metadata origin. Production should be the final HTTPS domain. |
-| `NEXT_PUBLIC_CAL_LINK` | Yes for booking | Production / Preview | Shared Cal.com full event URL or `username/event` path. |
-| `NEXT_PUBLIC_CAL_LINK_EN` | Optional | Production / Preview | Full URL or event path for the English event; overrides the shared link on `/en/book`. |
-| `NEXT_PUBLIC_CAL_LINK_EL` | Optional | Production / Preview | Full URL or event path for the Greek event; overrides the shared link on `/el/book`. |
 | `RESEND_API_KEY` | Recommended | Production / Preview | Sends contact briefs directly. Secret; never expose as `NEXT_PUBLIC_*`. |
 | `RESEND_FROM_EMAIL` | Recommended | Production / Preview | Verified sender on the production domain. |
 | `CONTACT_TO_EMAIL` | Recommended | Production / Preview | Recipient; defaults to `contact@joanisallushi.com`. |
 
-The site still works safely before Cal.com or Resend is configured: booking shows an email fallback and the contact form opens a populated email draft.
+The site works without Resend: the contact form opens a populated email draft. Booking needs no configuration.
 
-## Connect Cal.com
+## Booking
 
-1. In Cal.com, open **Event Types** and create or select the event visitors should book.
-2. Configure duration, availability, connected calendar, conferencing location, and confirmation settings.
-3. From the event’s menu choose **Embed** or copy its public URL. A URL such as `https://cal.com/username/intro-call` can be pasted directly into this project.
-4. For one bilingual event, set `NEXT_PUBLIC_CAL_LINK`. For fully translated Cal.com titles/descriptions, create an English and Greek event and set `NEXT_PUBLIC_CAL_LINK_EN` and `NEXT_PUBLIC_CAL_LINK_EL`.
-5. Add the same values in Vercel under **Project → Settings → Environment Variables** for Production and Preview, then redeploy.
-6. Make one test booking in each language and confirm the event reaches the connected calendar and meeting provider.
-
-These values are public booking URLs, not secrets. The application validates full URLs and accepts the global `cal.com` and European `cal.eu` hosts; event paths such as `username/intro-call` also work and default to `cal.com`.
+`/book` embeds the self-hosted booking page at https://book.joanisallushi.com in the visitor's language and the site's light theme
+(`components/booking-embed.tsx`). The page reports its height to the iframe. Availability, calendars and meeting links are configured
+on the server (private `allushi-infra` repo, `stack/booking.py`), not in Vercel. Set `NEXT_PUBLIC_BOOKING_URL` only to point at a
+different booking page. The booking page allows framing from this site, `*.vercel.app` previews and `localhost:3000`.
 
 ## Domain and email
 
@@ -76,7 +69,7 @@ On the preview deployment verify:
 - `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`, `/opengraph-image`, and `/icon` render.
 - Page source contains headings and content without requiring JavaScript.
 - English and Greek pages set the correct `<html lang>`, canonical URL, reciprocal `hreflang`, and language-preserving internal links.
-- A real Cal.com test booking reaches the connected calendar and expected meeting provider.
+- A test booking on `/book` (EN and EL) reaches the calendar and shows the Jitsi link.
 - A contact-form test reaches `CONTACT_TO_EMAIL` and reply-to is the visitor address.
 - Metadata canonical URLs use the final domain, not a preview URL.
 - Lighthouse mobile scores at least 90 in Performance, Accessibility, Best Practices, and SEO.
@@ -92,7 +85,6 @@ On the preview deployment verify:
 ## Current blockers
 
 - Final canonical domain decision.
-- Cal.com account/event path and calendar availability.
 - Resend account/API key and verified sender domain.
 - Updated personal CV PDF.
 - Final Claude Design export, imagery, testimonials/client permissions, and remaining owner content decisions.

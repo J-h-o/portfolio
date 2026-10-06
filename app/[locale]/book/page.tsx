@@ -1,13 +1,10 @@
 import { CalendarDays, Clock3, Video } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CalEmbed } from "@/components/cal-embed";
-import { ButtonLink } from "@/components/ui/button-link";
-import { siteConfig } from "@/content/site";
+import { BookingEmbed } from "@/components/booking-embed";
 import { getDictionary } from "@/content/dictionary";
 import { isLocale } from "@/content/i18n";
 import { createMetadata } from "@/lib/metadata";
-import { parseCalLink } from "@/lib/cal";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -22,10 +19,6 @@ export default async function BookPage({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const copy = getDictionary(locale).book;
-  const localizedCalLink = locale === "el"
-    ? process.env.NEXT_PUBLIC_CAL_LINK_EL
-    : process.env.NEXT_PUBLIC_CAL_LINK_EN;
-  const calConfig = parseCalLink(localizedCalLink ?? process.env.NEXT_PUBLIC_CAL_LINK);
 
   return (
     <>
@@ -44,16 +37,7 @@ export default async function BookPage({ params }: Props) {
       <section className="section section-subtle">
         <div className="container">
           <div className="booking-shell">
-            {calConfig ? <CalEmbed {...calConfig} /> : (
-              <div className="booking-setup">
-                <p className="kicker">{copy.pendingKicker}</p>
-                <h2>{copy.pendingTitle}</h2>
-                <p className="muted">{copy.pendingDescription}</p>
-                <div className="cluster" style={{ justifyContent: "center", marginTop: 18 }}>
-                  <ButtonLink href={`mailto:${siteConfig.email}`} variant="accent">{getDictionary(locale).common.email} {siteConfig.email}</ButtonLink>
-                </div>
-              </div>
-            )}
+            <BookingEmbed locale={locale} title={copy.metadataTitle} />
           </div>
         </div>
       </section>
